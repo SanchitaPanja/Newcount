@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Counting Script</title>
+    <style>
+        body {
+            background: linear-gradient(to right, #acbfd7, #f0fdf4);
+            height: 100vh;
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #count {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #2563eb;
+            margin-bottom: 30px;
+        }
+
+        .button-row {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        button {
+            padding: 12px 24px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            background-color: #2563eb;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+        }
+
+        button:hover {
+            background-color: #1d4ed8;
+            transform: scale(1.05);
+        }
+
+        button:active {
+            transform: scale(0.95);
+        }
+
+        #reset {
+            background-color: #ef4444;
+        }
+
+        #reset:hover {
+            background-color: #dc2626;
+        }
+    </style>
+</head>
+<body>
+    <div id="count">Count: 0</div>
+    <div class="button-row">
+        <button id="inc">Increment</button>
+        <button id="dec">Decrement</button>
+    </div>
+    <button id="reset">Reset</button>
+
+    <script>
+        let count = 0;
+        const display = document.getElementById("count");
+        const inc = document.getElementById("inc");
+        const dec = document.getElementById("dec");
+        const reset = document.getElementById("reset");
+
+        function updateDisplay() {
+            display.textContent = "Count: " + count;
+        }
+
+        inc.addEventListener("click", () => {
+            count++;
+            updateDisplay();
+        });
+
+        dec.addEventListener("click", () => {
+            count--;
+            updateDisplay();
+        });
+
+        reset.addEventListener("click", () => {
+            count = 0;
+            updateDisplay();
+        });
+
+        updateDisplay();
+    </script>
+</body>
+</html>
